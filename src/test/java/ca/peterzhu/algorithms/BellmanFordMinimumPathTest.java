@@ -9,7 +9,7 @@ import org.junit.Test;
 public class BellmanFordMinimumPathTest {
 	
 	@Test
-	public void test() {
+	public void testMinimumPath() {
 		BellmanFordMinimumPath b = new BellmanFordMinimumPath(0);
 
 		b.addEdge(3, 4, 2);
@@ -26,19 +26,22 @@ public class BellmanFordMinimumPathTest {
 		Assert.assertArrayEquals(new Integer[]{0, 1, 2}, b.getPath(2).toArray());
 		Assert.assertArrayEquals(new Integer[]{0, 1, 2, 4, 3}, b.getPath(3).toArray());
 		Assert.assertArrayEquals(new Integer[]{0, 1, 2, 4}, b.getPath(4).toArray());
+	}
+	
+	@Test(expected=RuntimeException.class)
+	public void testNegativeCycle() {
+		BellmanFordMinimumPath bcycle = new BellmanFordMinimumPath(0);
 
-//		BellmanFordMinimumPath bcycle = new BellmanFordMinimumPath(0);
-//
-//		bcycle.addEdge(0, 1, 1);
-//		bcycle.addEdge(1, 2, 3);
-//		bcycle.addEdge(2, 3, 2);
-//		bcycle.addEdge(3, 1, -6);
-//
-//		bcycle.compute();
-//
-//		for (int i = 1; i < 5; i++) {
-//			System.out.println(bcycle.getPath(i));
-//		}
+		bcycle.addEdge(0, 1, 1);
+		bcycle.addEdge(1, 2, 3);
+		bcycle.addEdge(2, 3, 2);
+		bcycle.addEdge(3, 1, -6);
+
+		bcycle.compute();
+
+		for (int i = 1; i < 5; i++) {
+			System.out.println(bcycle.getPath(i));
+		}
 	}
 
 }
