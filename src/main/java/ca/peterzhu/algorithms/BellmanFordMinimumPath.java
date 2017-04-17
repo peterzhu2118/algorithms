@@ -57,6 +57,8 @@ public class BellmanFordMinimumPath {
 	 *            destination vertex
 	 * @param weight
 	 *            weight of the edge
+	 * @throws RuntimeException
+	 *             if there is a negative cycle
 	 */
 	public void addEdge(int src, int dest, int weight) {
 		edges.add(new WeightedDirectedGraphEdge(src, dest, weight));
