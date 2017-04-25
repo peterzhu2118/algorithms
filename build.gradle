@@ -6,54 +6,21 @@
  * user guide available at https://docs.gradle.org/3.4/userguide/java_library_plugin.html
  */
 
-allprojects {
-    apply plugin: 'java'
-    apply plugin: 'java-library'
-    apply plugin: 'maven'
-    apply plugin: 'jacoco'
+apply plugin: 'java'
+apply plugin: 'java-library'
+apply plugin: 'jacoco'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        jcenter()
-
-        maven { url "http://repo1.maven.org/maven2/" }
-    }
+dependencies {
+    // Use JUnit test framework
+    testCompile 'junit:junit:4.12'
 }
 
-subprojects {
-    dependencies {
-        testCompile 'junit:junit:4.12'  
-    }
-
-    test.useTestNG()
-}
-
-task codeCoverageReport(type: JacocoReport) {
-    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
-
-    subprojects.each {
-        sourceSets it.sourceSets.main
-    }
-
+jacocoTestReport {
     reports {
         xml.enabled true
-        xml.destination "${buildDir}/reports/jacoco/report.xml"
         html.enabled false
-        csv.enabled false
     }
-}
-
-codeCoverageReport.dependsOn {
-    subprojects*.test
-}
-
-// In this section you declare where to find the dependencies of your project
-repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
 }
