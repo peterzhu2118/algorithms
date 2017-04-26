@@ -5,11 +5,10 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * user guide available at https://docs.gradle.org/3.4/userguide/java_library_plugin.html
  */
-apply plugin: 'java'
-apply plugin: 'java-library'
-apply plugin: 'jacoco'
-
+ 
 plugins {
+	id 'java'
+	id 'java-library'
     id 'jacoco'
     id 'com.github.kt3k.coveralls' version '2.6.3'
 }
