@@ -1,5 +1,6 @@
 package ca.peterzhu.algorithms;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
@@ -8,7 +9,7 @@ import org.junit.Test;
 public class KruskalMSTTest {
 
 	@Test
-	public void testMinimumPath() {
+	public void testMST() {
 		KruskalMST k = new KruskalMST();
 
 		k.addEdge(1, 2, 3);
@@ -23,12 +24,12 @@ public class KruskalMSTTest {
 
 		List<WeightedUndirectedGraphEdge> mst = k.MST();
 
-		Assert.assertArrayEquals(new WeightedUndirectedGraphEdge[] {
+		Assert.assertTrue(Arrays.asList(new WeightedUndirectedGraphEdge[] {
 				new WeightedUndirectedGraphEdge(2, 3, 1),
 				new WeightedUndirectedGraphEdge(1, 4, 1),
 				new WeightedUndirectedGraphEdge(3, 4, 1),
 				new WeightedUndirectedGraphEdge(6, 5, 2),
-				new WeightedUndirectedGraphEdge(3, 6, 4) }, mst.toArray());
+				new WeightedUndirectedGraphEdge(3, 6, 4) }).containsAll(mst));
 	}
 
 }
