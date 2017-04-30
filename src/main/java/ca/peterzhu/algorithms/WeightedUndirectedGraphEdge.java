@@ -30,4 +30,15 @@ public class WeightedUndirectedGraphEdge extends UnweightedUndirectedGraphEdge i
 	public String toString() {
 		return "Vertex: " + src + ", " + dest + " Weight: " + weight;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof WeightedUndirectedGraphEdge) {
+			WeightedUndirectedGraphEdge e = (WeightedUndirectedGraphEdge) o;
+			return e.src == src && e.dest == dest && e.weight == weight;
+		} else {
+			System.out.println("else");
+			return false;
+		}
+	}
 }
