@@ -23,15 +23,17 @@ public class KruskalMSTTest {
 		k.addEdge(6, 5, 2);
 
 		List<WeightedUndirectedGraphEdge> mst = k.MST();
-		
-		System.out.println(mst);
 
-		Assert.assertTrue(Arrays.asList(new WeightedUndirectedGraphEdge[] {
-				new WeightedUndirectedGraphEdge(2, 3, 1),
-				new WeightedUndirectedGraphEdge(1, 4, 1),
-				new WeightedUndirectedGraphEdge(3, 4, 1),
-				new WeightedUndirectedGraphEdge(6, 5, 2),
-				new WeightedUndirectedGraphEdge(3, 6, 4) }).containsAll(mst));
+		Assert.assertTrue(
+				mst.toString(),
+				Arrays.asList(
+						new WeightedUndirectedGraphEdge[] {
+								new WeightedUndirectedGraphEdge(2, 3, 1),
+								new WeightedUndirectedGraphEdge(1, 4, 1),
+								new WeightedUndirectedGraphEdge(3, 4, 1),
+								new WeightedUndirectedGraphEdge(6, 5, 2),
+								new WeightedUndirectedGraphEdge(3, 6, 4) })
+						.containsAll(mst));
 	}
 
 }
