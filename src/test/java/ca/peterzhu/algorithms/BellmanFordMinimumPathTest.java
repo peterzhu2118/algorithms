@@ -1,10 +1,7 @@
 package ca.peterzhu.algorithms;
 
 import org.junit.Assert;
-import ca.peterzhu.algorithms.BellmanFordMinimumPath;
-
 import org.junit.Test;
-
 
 public class BellmanFordMinimumPathTest {
 	
