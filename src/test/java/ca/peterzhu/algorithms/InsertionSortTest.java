@@ -6,7 +6,7 @@ import org.junit.Test;
 public class InsertionSortTest {
 	
 	@Test
-	public void testMinimumPath() {
+	public void testSort() {
 		int[] arr = new int[] { -5, 5, -8, 7, 9, 2, 4, -9, -4, 0 };
 
 		InsertionSort.sort(arr);
