@@ -10,8 +10,12 @@ public class CoinChange {
 	}
 
 	public static List<Integer> compute(int total, int[] coins) {
-		int[] t = new int[total + 1];
-		int[] result = new int[total + 1];
+		// Find smallest coin denomination
+		int smallestCoin = Integer.MAX_VALUE;
+		for (int i: coins) smallestCoin = Math.min(smallestCoin, i);
+
+		int[] t = new int[total + smallestCoin];
+		int[] result = new int[total + smallestCoin];
 
 		// Fill the total array (which stores the number of coins needed for a
 		// specific amount of change) with maximum values (infinite amount of
@@ -31,8 +35,8 @@ public class CoinChange {
 						// If adding this coin is more efficient than the
 						// current solution, then change the solution to use
 						// this and the result to this coin
-						if (1 + t[i - currCoin] < t[i]) {
-							t[i] = 1 + t[i - currCoin];
+						if (smallestCoin + t[i - currCoin] < t[i]) {
+							t[i] = smallestCoin + t[i - currCoin];
 							result[i] = c;
 						}
 					}
@@ -42,7 +46,7 @@ public class CoinChange {
 
 		// Stores the result
 		List<Integer> r = new ArrayList<>();
-		int currPos = result.length - 1;
+		int currPos = result.length - smallestCoin;
 
 		while (true) {
 			r.add(coins[result[currPos]]);
