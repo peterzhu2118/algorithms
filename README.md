@@ -1,5 +1,4 @@
-# Algorithms
-[![Build Status](https://travis-ci.org/peterzhu2118/algorithms.svg?branch=master)](https://travis-ci.org/peterzhu2118/algorithms) [![Coverage Status](https://coveralls.io/repos/github/peterzhu2118/algorithms/badge.svg)](https://coveralls.io/github/peterzhu2118/algorithms)
+# Algorithms [![Build Status](https://travis-ci.org/peterzhu2118/algorithms.svg?branch=master)](https://travis-ci.org/peterzhu2118/algorithms) [![Coverage Status](https://coveralls.io/repos/github/peterzhu2118/algorithms/badge.svg)](https://coveralls.io/github/peterzhu2118/algorithms)
 
 ## About
 This repo contains some of the commonly used general purpose algorithms that can be used for teaching, contest preparation, projects, etc. This is project is currently still in beta phase and more algorithms will be added soon.
